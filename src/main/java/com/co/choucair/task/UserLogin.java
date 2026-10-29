@@ -10,10 +10,10 @@ import net.serenitybdd.screenplay.waits.WaitUntil;
 import static com.co.choucair.userinterfaces.LoginPage.*;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
-public class LoginOnSite  implements Task {
+public class UserLogin implements Task {
 
     protected LoginLombokData loginLombokData;
-    public LoginOnSite(LoginLombokData loginLombokData) {
+    public UserLogin(LoginLombokData loginLombokData) {
         this.loginLombokData = loginLombokData;
     }
 
@@ -27,7 +27,7 @@ public class LoginOnSite  implements Task {
         );
     }
 
-    public static LoginOnSite on(LoginLombokData loginLombokData) {
-        return Instrumented.instanceOf(LoginOnSite.class).withProperties(loginLombokData);
+    public static UserLogin on(LoginLombokData loginLombokData) {
+        return Instrumented.instanceOf(UserLogin.class).withProperties(loginLombokData);
     }
 }

@@ -10,5 +10,5 @@ import org.junit.runner.RunWith;
         glue = "com.co.choucair.stepdefinitions",
         snippets = CucumberOptions.SnippetType.CAMELCASE
 )
-public class LoginOnSiteRunner {
+public class UserLoginRunner {
 }
