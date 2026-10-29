@@ -4,9 +4,11 @@ import com.co.choucair.models.LoginLombokData;
 import com.co.choucair.questions.ValidateTitlePage;
 import com.co.choucair.task.LoginOnSite;
 import io.cucumber.datatable.DataTable;
+import io.cucumber.java.PendingException;
 import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Dado;
 import io.cucumber.java.es.Entonces;
+import io.cucumber.java.es.Y;
 import net.serenitybdd.screenplay.GivenWhenThen;
 import net.serenitybdd.screenplay.actions.Open;
 import net.serenitybdd.screenplay.actors.OnStage;
@@ -38,5 +40,6 @@ public class LoginOnSiteStepDefinitions {
                 GivenWhenThen.seeThat(ValidateTitlePage.on(TXT_TITLE), equalTo(title))
         );
     }
+
 
 }
