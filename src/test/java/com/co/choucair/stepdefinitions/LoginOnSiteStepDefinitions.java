@@ -1,10 +1,9 @@
 package com.co.choucair.stepdefinitions;
 
 import com.co.choucair.models.LoginLombokData;
-import com.co.choucair.questions.CurrentPageUrl;
+import com.co.choucair.questions.ValidateTitlePage;
 import com.co.choucair.task.LoginOnSite;
 import io.cucumber.datatable.DataTable;
-import io.cucumber.java.PendingException;
 import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Dado;
 import io.cucumber.java.es.Entonces;
@@ -36,7 +35,7 @@ public class LoginOnSiteStepDefinitions {
     @Entonces("^vera el titulo (.*) en pantalla.$")
     public void veraElTituloTituloEnPantalla(String title) {
         OnStage.theActorInTheSpotlight().should(
-                GivenWhenThen.seeThat(CurrentPageUrl.on(TXT_TITLE), equalTo(title))
+                GivenWhenThen.seeThat(ValidateTitlePage.on(TXT_TITLE), equalTo(title))
         );
     }
 
