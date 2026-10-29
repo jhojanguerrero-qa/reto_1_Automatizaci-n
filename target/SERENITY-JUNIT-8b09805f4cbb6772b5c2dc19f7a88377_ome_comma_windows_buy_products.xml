@@ -1,1 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="0" failures="0" name="Compra de productos" skipped="0" tests="5" time="33.82" timestamp="2026-10-29 03:45:30"><testcase name="Agregar producto al carrito de compras"/><testcase name="Vizualizar el producto agregado en el carrito de compras"/><testcase name="Finalizar el proceso de compras"/></testsuite>
