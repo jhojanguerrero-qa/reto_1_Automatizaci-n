@@ -1,5 +1,7 @@
 package com.co.choucair.task;
 
+import com.co.choucair.models.BuyProductLombokData;
+import com.co.choucair.models.ShippingInformationLombokData;
 import net.serenitybdd.core.steps.Instrumented;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
@@ -12,25 +14,36 @@ import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisi
 
 public class BuyProduct implements Task {
 
-    private String producto;
+   /* private String producto;
 
     public BuyProduct(String producto) {
         this.producto = producto;
     }
+*/
+   protected BuyProductLombokData buyProductLombokData;
 
+    public BuyProduct(BuyProductLombokData buyProductLombokData) {
+        this.buyProductLombokData = buyProductLombokData;
+    }
 
     @Override
     public <T extends Actor> void performAs(T actor) {
 
         actor.attemptsTo(
                 WaitUntil.the(TXT_TITLE, isVisible()).forNoMoreThan(20).seconds(),
-                Click.on(BTN_ADD_PROD.of(producto))
+                Click.on(BTN_ADD_PROD.of(buyProductLombokData.getProducto()))
         );
 
     }
 
-    public static BuyProduct on(String producto) {
+    /*public static BuyProduct on(String producto) {
         return Instrumented.instanceOf(BuyProduct.class)
                 .withProperties(producto);
+    }*/
+
+    public static BuyProduct on(BuyProductLombokData buyProductLombokData) {
+        return Instrumented.instanceOf(BuyProduct.class).withProperties(buyProductLombokData);
     }
+
 }
+

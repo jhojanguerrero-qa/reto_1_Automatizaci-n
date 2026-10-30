@@ -11,9 +11,7 @@ import java.util.Map;
 @Data
 public class BuyProductLombokData {
 
-    private String primerNombre;
-    private String apellido;
-    private String codigoPostal;
+    private String producto;
 
     private static final ObjectMapper OBJECTMAPPER = new ObjectMapper();
 

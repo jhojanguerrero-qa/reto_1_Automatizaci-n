@@ -5,32 +5,36 @@ Característica: Compra de productos
   Antecedentes:
     Dado que el cliente se ubica en la página de inicio de sesión
     Y ha iniciado sesión exitosamente
+      | usuario       | contraseña   |
+      | standard_user | secret_sauce |
 
-  Esquema del escenario: Agregar producto al carrito de compras
-    Cuando el cliente agrega el producto <producto> al carrito
+  Escenario: Agregar producto al carrito de compras
+    Cuando el cliente agrega el producto al carrito
+      | producto            |
+      | Sauce Labs Backpack |
     Entonces vera una unidad en el icono del carrito
-    Ejemplos:
+
+
+  Escenario: Visualizar el producto agregado en el carrito de compras
+    Cuando el cliente agrega productos al carrito
+      | producto            |
+      | Sauce Labs Backpack |
+    Y accede al carrito de compras
+    Entonces vera el(los) producto(s) agregado(s) al carrito
       | producto            |
       | Sauce Labs Backpack |
 
 
-  Esquema del escenario: Visualizar el producto agregado en el carrito de compras
-    Cuando agrega el producto <producto> al carrito
-    Y el cliente accede al carrito de compras
-    Entonces vera el producto <producto> agregado al carrito
-    Ejemplos:
+  Escenario: Completar informacion de envio del pedido
+
+    Dado que el cliente ha agregado el(los) producto(s) al carrito
       | producto            |
       | Sauce Labs Backpack |
-
-  Esquema del escenario: Completar informacion de envio del pedido
-
-    Dado que el cliente ha agregado el producto <producto> al carrito
     Cuando accede al carrito de compras
     Y continua con el checkout
     Y ingresa la informacion solicitada para el pedido
       | primerNombre | apellido | codigoPostal |
       | Prueba       | Qa       | 10101        |
-    Entonces podra continuar con el resumen de la compra
-    Ejemplos:
-      | producto            |
-      | Sauce Labs Backpack |
+    Entonces podra continuar con la pagina titulada de detalle del pedido
+      | titulo             |
+      | Checkout: Overview |
