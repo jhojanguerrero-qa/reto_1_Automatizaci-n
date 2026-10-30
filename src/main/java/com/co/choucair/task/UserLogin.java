@@ -20,7 +20,7 @@ public class UserLogin implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                WaitUntil.the(TXT_USERNAME, isVisible()).forNoMoreThan(20).seconds(),
+                WaitUntil.the(TXT_USERNAME, isVisible()).forNoMoreThan(30).seconds(),
                 Enter.theValue(loginLombokData.getUsuario()).into(TXT_USERNAME),
                 Enter.theValue(loginLombokData.getContraseña()).into(TXT_PASSWORD),
                 Click.on(BTN_LOGIN)

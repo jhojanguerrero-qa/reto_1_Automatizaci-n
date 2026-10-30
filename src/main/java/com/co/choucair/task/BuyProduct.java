@@ -1,14 +1,10 @@
 package com.co.choucair.task;
 
-import com.co.choucair.models.BuyProductLombokData;
-import com.co.choucair.models.LoginLombokData;
 import net.serenitybdd.core.steps.Instrumented;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.waits.WaitUntil;
-
-import java.util.List;
 
 import static com.co.choucair.userinterfaces.BuyProduct.BTN_ADD_PROD;
 import static com.co.choucair.userinterfaces.LoginPage.TXT_TITLE;
@@ -23,7 +19,6 @@ public class BuyProduct implements Task {
     }
 
 
-
     @Override
     public <T extends Actor> void performAs(T actor) {
 
@@ -31,6 +26,7 @@ public class BuyProduct implements Task {
                 WaitUntil.the(TXT_TITLE, isVisible()).forNoMoreThan(20).seconds(),
                 Click.on(BTN_ADD_PROD.of(producto))
         );
+
     }
 
     public static BuyProduct on(String producto) {

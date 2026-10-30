@@ -9,12 +9,12 @@ import net.thucydides.core.webdriver.SerenityWebdriverManager;
 public class Hooks {
 
     @Before
-    public void setTheStage(){
+    public void setTheStage() {
         OnStage.setTheStage(new OnlineCast());
     }
 
     @After
-    public void tearDown(){
+    public void tearDown() {
         SerenityWebdriverManager.inThisTestThread().closeCurrentDriver();
         SerenityWebdriverManager.inThisTestThread().clearCurrentActiveDriver();
     }
