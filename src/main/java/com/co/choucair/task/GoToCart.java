@@ -1,11 +1,10 @@
 package com.co.choucair.task;
 
-import net.serenitybdd.core.steps.Instrumented;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 
-import static com.co.choucair.userinterfaces.BuyProduct.SHOPPINGCARTICON;
+import static com.co.choucair.userinterfaces.BuyProductUI.SHOPPINGCARTICON;
 
 public class GoToCart implements Task {
 

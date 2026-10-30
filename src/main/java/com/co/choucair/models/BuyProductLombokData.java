@@ -11,6 +11,10 @@ import java.util.Map;
 @Data
 public class BuyProductLombokData {
 
+    private String primerNombre;
+    private String apellido;
+    private String codigoPostal;
+
     private static final ObjectMapper OBJECTMAPPER = new ObjectMapper();
 
     public static List<BuyProductLombokData> convertToBuyProduct(DataTable table) {

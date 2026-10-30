@@ -10,8 +10,8 @@ Característica: Compra de productos
     Cuando el cliente agrega el producto <producto> al carrito
     Entonces vera una unidad en el icono del carrito
     Ejemplos:
-      | producto                |
-      | Sauce Labs Backpack     |
+      | producto            |
+      | Sauce Labs Backpack |
 
 
   Esquema del escenario: Visualizar el producto agregado en el carrito de compras
@@ -19,9 +19,18 @@ Característica: Compra de productos
     Y el cliente accede al carrito de compras
     Entonces vera el producto <producto> agregado al carrito
     Ejemplos:
-      | producto                |
-      | Sauce Labs Backpack     |
+      | producto            |
+      | Sauce Labs Backpack |
 
-  Escenario: Finalizar el proceso de compra
-    Cuando el cliente ingrese los datos solicitados para el proceso de compras
-    Entonces podrá completar el flujo de compras
+  Esquema del escenario: Completar informacion de envio del pedido
+
+    Dado que el cliente ha agregado el producto <producto> al carrito
+    Cuando accede al carrito de compras
+    Y continua con el checkout
+    Y ingresa la informacion solicitada para el pedido
+      | primerNombre | apellido | codigoPostal |
+      | Prueba       | Qa       | 10101        |
+    Entonces podra continuar con el resumen de la compra
+    Ejemplos:
+      | producto            |
+      | Sauce Labs Backpack |

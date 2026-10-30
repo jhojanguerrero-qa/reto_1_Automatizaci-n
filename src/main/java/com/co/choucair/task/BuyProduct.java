@@ -6,7 +6,7 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
-import static com.co.choucair.userinterfaces.BuyProduct.BTN_ADD_PROD;
+import static com.co.choucair.userinterfaces.BuyProductUI.BTN_ADD_PROD;
 import static com.co.choucair.userinterfaces.LoginPage.TXT_TITLE;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
