@@ -9,18 +9,18 @@ import java.util.List;
 import java.util.Map;
 
 @Data
-public class TitleLomboData {
+public class TitleLombokData {
     private String titulo;
 
     private static final ObjectMapper OBJECTMAPPER = new ObjectMapper();
 
-    public static List<TitleLomboData> convertToTitleData(DataTable table) {
-        List<TitleLomboData> data = new ArrayList<>();
+    public static List<TitleLombokData> convertToTitleData(DataTable table) {
+        List<TitleLombokData> data = new ArrayList<>();
         List<Map<String, String>> mapInfo = table.asMaps();
 
 
         for (Map<String, String> map : mapInfo) {
-            data.add(OBJECTMAPPER.convertValue(map, TitleLomboData.class));
+            data.add(OBJECTMAPPER.convertValue(map, TitleLombokData.class));
         }
         return data;
     }

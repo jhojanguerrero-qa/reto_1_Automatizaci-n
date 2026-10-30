@@ -4,10 +4,11 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
 import net.serenitybdd.screenplay.targets.Target;
 
-public class ValidateShoppingCartIcon implements Question<String> {
-    protected Target element;
+public class TextValue implements Question<String> {
 
-    public ValidateShoppingCartIcon(Target element) {
+    private final Target element;
+
+    public TextValue(Target element) {
         this.element = element;
     }
 
@@ -17,6 +18,7 @@ public class ValidateShoppingCartIcon implements Question<String> {
     }
 
     public static Question<String> on(Target element) {
-        return new ValidateShoppingCartIcon(element);
+        return new TextValue(element);
     }
+
 }
