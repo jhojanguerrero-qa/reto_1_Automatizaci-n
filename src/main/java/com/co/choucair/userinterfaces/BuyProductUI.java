@@ -10,18 +10,23 @@ public class BuyProductUI {
             .locatedBy("//span[@data-test='shopping-cart-badge']");
     public static final Target TXT_NAME_PRODUCT = Target.the("Name Product In Cart")
             .locatedBy("//div[@data-test='inventory-item-name']");
-    public static final Target BTN_CHECKOUT = Target.the("Checkout continue button")
-            //.located(By.id("continue"));
+    public static final Target BTN_CHECKOUT = Target.the("Checkout button")
             .located(By.id("checkout"));
 
-    public static final Target TXT_FIRST_NAME = Target.the("Username field")
+    public static final Target TXT_FIRST_NAME = Target.the("First name field")
             .located(By.id("first-name"));
-    public static final Target TXT_LAST_NAME = Target.the("Password field")
+    public static final Target TXT_LAST_NAME = Target.the("Last name field")
             .located(By.id("last-name"));
-    public static final Target TXT_ZIP = Target.the("Password field")
+    public static final Target TXT_ZIP = Target.the("Postal code field")
             .located(By.id("postal-code"));
-    public static final Target BTN_CONTINUE = Target.the("Checkout continue button")
-            //.located(By.id("continue"));
+    public static final Target BTN_CONTINUE = Target.the("Continue button")
             .located(By.id("continue"));
+
+
+    public static final Target BTN_FINISH = Target.the("Finish button")
+            .located(By.id("finish"));
+    public static final Target TXT_MESSAGE_FINISH = Target.the("Message finish page")
+            .locatedBy("//h2[@data-test=\"complete-header\"]");
+
 
 }

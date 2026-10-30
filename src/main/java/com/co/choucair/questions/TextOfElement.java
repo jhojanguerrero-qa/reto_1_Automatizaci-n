@@ -4,11 +4,11 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
 import net.serenitybdd.screenplay.targets.Target;
 
-public class TextValue implements Question<String> {
+public class TextOfElement implements Question<String> {
 
     private final Target element;
 
-    public TextValue(Target element) {
+    public TextOfElement(Target element) {
         this.element = element;
     }
 
@@ -18,7 +18,7 @@ public class TextValue implements Question<String> {
     }
 
     public static Question<String> on(Target element) {
-        return new TextValue(element);
+        return new TextOfElement(element);
     }
 
 }

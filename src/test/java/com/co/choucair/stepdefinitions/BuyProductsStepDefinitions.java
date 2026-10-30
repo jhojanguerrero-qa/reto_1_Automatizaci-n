@@ -1,24 +1,19 @@
 package com.co.choucair.stepdefinitions;
 
 import com.co.choucair.models.BuyProductLombokData;
-import com.co.choucair.models.ShippingInformationLombokData;
 import com.co.choucair.models.LoginLombokData;
-import com.co.choucair.models.TitleLomboData;
-import com.co.choucair.questions.ValidateProductCart;
-import com.co.choucair.questions.ValidateShoppingCartIcon;
-import com.co.choucair.questions.ValidateTitlePage;
+import com.co.choucair.models.ShippingInformationLombokData;
+import com.co.choucair.models.PageTitleData;
+import com.co.choucair.questions.TextOfElement;
 import com.co.choucair.task.*;
 import io.cucumber.datatable.DataTable;
-import io.cucumber.java.PendingException;
 import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Dado;
 import io.cucumber.java.es.Entonces;
 import io.cucumber.java.es.Y;
-import net.serenitybdd.screenplay.GivenWhenThen;
 import net.serenitybdd.screenplay.actors.OnStage;
 
-import static com.co.choucair.userinterfaces.BuyProductUI.SHOPPINGCARTICON;
-import static com.co.choucair.userinterfaces.BuyProductUI.TXT_NAME_PRODUCT;
+import static com.co.choucair.userinterfaces.BuyProductUI.*;
 import static com.co.choucair.userinterfaces.LoginPage.TXT_TITLE;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -29,7 +24,7 @@ public class BuyProductsStepDefinitions {
     @Y("ha iniciado sesión exitosamente")
     public void haIniciadoSesiónExitosamente(DataTable dataTable) {
         OnStage.theActorInTheSpotlight().attemptsTo(
-                UserLogin.on(LoginLombokData.convertToLoginData(dataTable).get(0))
+                UserLogin.withCredentials(LoginLombokData.convertToLoginData(dataTable).get(0))
         );
     }
 
@@ -43,7 +38,7 @@ public class BuyProductsStepDefinitions {
     @Entonces("vera una unidad en el icono del carrito")
     public void veraUnaUnidadEnElIconoDelCarrito() {
         OnStage.theActorInTheSpotlight().should(
-                seeThat(ValidateShoppingCartIcon.on(SHOPPINGCARTICON), equalTo("1"))
+                seeThat(TextOfElement.on(SHOPPINGCARTICON), equalTo("1"))
         );
     }
 
@@ -66,8 +61,8 @@ public class BuyProductsStepDefinitions {
         BuyProductLombokData data = BuyProductLombokData.convertToBuyProduct(dataTable).get(0);
 
         OnStage.theActorInTheSpotlight().should(
-                GivenWhenThen.seeThat(
-                        ValidateProductCart.on(TXT_NAME_PRODUCT),
+                seeThat(
+                        TextOfElement.on(TXT_NAME_PRODUCT),
                         equalTo(data.getProducto())
                 )
         );
@@ -90,24 +85,35 @@ public class BuyProductsStepDefinitions {
     @Y("ingresa la informacion solicitada para el pedido")
     public void ingresaLaInformacionSolicitadaParaElPedido(DataTable dataTable) {
         OnStage.theActorInTheSpotlight().attemptsTo(
-              CompleteFormInformation.on(ShippingInformationLombokData.convertToBuyProduct(dataTable).get(0))
+                CompleteFormInformation.withInformation(ShippingInformationLombokData.convertToShippingInformation(dataTable).get(0))
         );
-    }
-
-    @Entonces("podra continuar a la pagina titulada  de detalle del pedido")
-    public void podraContinuarALaPaginaTituladaDeDetalleDelPedido() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
     }
 
     @Entonces("podra continuar con la pagina titulada de detalle del pedido")
     public void podraContinuarConLaPaginaTituladaDeDetalleDelPedido(DataTable dataTable) {
-        TitleLomboData data = TitleLomboData.convertToTitleData(dataTable).get(0);
+        PageTitleData data = PageTitleData.convertToPageTitleData(dataTable).get(0);
 
         OnStage.theActorInTheSpotlight().should(
                 seeThat(
-                        ValidateTitlePage.on(TXT_TITLE),
+                        TextOfElement.on(TXT_TITLE),
                         equalTo(data.getTitulo())
+                )
+        );
+    }
+
+    @Y("confirma la compra")
+    public void confirmaLaCompra() {
+        OnStage.theActorInTheSpotlight().attemptsTo(
+                ConfirmPurchase.now()
+        );
+    }
+
+    @Entonces("visualizara el mensaje {string} de compra realizada exitosamente")
+    public void visualizaraElMensajeDeCompraRealizadaExitosamente(String data) {
+        OnStage.theActorInTheSpotlight().should(
+                seeThat(
+                        TextOfElement.on(TXT_MESSAGE_FINISH),
+                        equalTo(data)
                 )
         );
     }

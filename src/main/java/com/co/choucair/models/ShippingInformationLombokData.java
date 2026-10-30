@@ -17,7 +17,7 @@ public class ShippingInformationLombokData {
 
     private static final ObjectMapper OBJECTMAPPER = new ObjectMapper();
 
-    public static List<ShippingInformationLombokData> convertToBuyProduct(DataTable table) {
+    public static List<ShippingInformationLombokData> convertToShippingInformation(DataTable table) {
         List<ShippingInformationLombokData> data = new ArrayList<>();
         List<Map<String, String>> mapInfo = table.asMaps();
 

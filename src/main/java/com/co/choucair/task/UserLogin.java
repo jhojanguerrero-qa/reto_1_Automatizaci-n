@@ -7,12 +7,14 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.waits.WaitUntil;
+
 import static com.co.choucair.userinterfaces.LoginPage.*;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
 public class UserLogin implements Task {
 
-    protected LoginLombokData loginLombokData;
+    private final LoginLombokData loginLombokData;
+
     public UserLogin(LoginLombokData loginLombokData) {
         this.loginLombokData = loginLombokData;
     }
@@ -22,12 +24,12 @@ public class UserLogin implements Task {
         actor.attemptsTo(
                 WaitUntil.the(TXT_USERNAME, isVisible()).forNoMoreThan(30).seconds(),
                 Enter.theValue(loginLombokData.getUsuario()).into(TXT_USERNAME),
-                Enter.theValue(loginLombokData.getContraseña()).into(TXT_PASSWORD),
+                Enter.theValue(loginLombokData.getPassword()).into(TXT_PASSWORD),
                 Click.on(BTN_LOGIN)
         );
     }
 
-    public static UserLogin on(LoginLombokData loginLombokData) {
+    public static UserLogin withCredentials(LoginLombokData loginLombokData) {
         return Instrumented.instanceOf(UserLogin.class).withProperties(loginLombokData);
     }
 }

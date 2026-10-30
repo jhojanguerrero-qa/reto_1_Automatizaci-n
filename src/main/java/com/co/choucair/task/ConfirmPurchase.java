@@ -10,7 +10,7 @@ import static com.co.choucair.userinterfaces.BuyProductUI.BTN_FINISH;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
 
-public class FinishBuyProduct implements Task {
+public class ConfirmPurchase implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
@@ -20,7 +20,7 @@ public class FinishBuyProduct implements Task {
         );
     }
 
-    public static FinishBuyProduct now() {
-        return Instrumented.instanceOf(FinishBuyProduct.class).withProperties();
+    public static ConfirmPurchase now() {
+        return Instrumented.instanceOf(ConfirmPurchase.class).withProperties();
     }
 }

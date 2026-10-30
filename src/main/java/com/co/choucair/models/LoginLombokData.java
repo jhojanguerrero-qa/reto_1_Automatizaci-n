@@ -12,7 +12,7 @@ import java.util.Map;
 public class LoginLombokData {
 
     private String usuario;
-    private String contraseña;
+    private String password;
 
     private static final ObjectMapper OBJECTMAPPER = new ObjectMapper();
 
